@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('test-angular.git App', () => {
+describe('test-angular App', () => {
   let page: AppPage;
 
   beforeEach(() => {
