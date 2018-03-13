@@ -1,1 +1,73 @@
-/* You can add global styles to this file, and also import other style files */
+
+$bodyBackground: #ebe5e5;
+$navButtonBorderRadius: 5px;
+$navButtonHoverBackground: #ffffff;
+$navButtonActiveBackground: #ddd5d5;
+$navButtonHoverColor: #000000;
+$navButtonActiveColor: #000000;
+$MainMarginTop: 15px;
+$borderTitleCard: solid 1px black;
+$heightCards: 70px;
+$seccionDiv-Padding: 7px;
+
+body {
+	background-color: $bodyBackground;
+
+	app-navbar {
+		ul {
+			li {
+				border-radius: $navButtonBorderRadius;
+				-webkit-border-radius: $navButtonBorderRadius;
+	
+				&:hover {
+					background-color: $navButtonHoverBackground;
+					
+					a {
+						color: $navButtonHoverColor !important;
+					}
+				}
+				&:active {
+					background-color: $navButtonActiveBackground;
+					
+					a {
+						color: $navButtonActiveColor !important;
+					}
+				}
+			}
+		}
+	}
+	
+	main {
+		&.container {
+			margin-top: $MainMarginTop;
+		}
+	
+		app-articulos {
+			section {
+				& > div {
+					padding: $seccionDiv-Padding !important;
+					
+					article {
+						cursor: pointer;
+	
+						h5.card-title {
+							border-bottom: $borderTitleCard;
+						}
+						div.card-body {
+							p {
+								display: block;
+								overflow:hidden;
+								text-overflow:ellipsis;
+								width: 100%;
+								height: $heightCards;
+							}
+						}
+					}
+				}
+			}
+		}
+		app-detalle {
+			
+		}
+	}
+}
