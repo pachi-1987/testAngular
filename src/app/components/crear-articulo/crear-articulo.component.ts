@@ -14,43 +14,31 @@ export class CrearArticuloComponent implements OnInit {
 
   ngOnInit() {}
 
-  crearTituloH3(field: HTMLTextAreaElement) {
-
-    this.insertText(field.selectionStart, '<h3></h3>\n', field.selectionEnd);
-  }
-
   crearTituloH4(field: HTMLTextAreaElement) {
-
     this.insertText(field.selectionStart, '<h4></h4>\n', field.selectionEnd);
   }
 
   crearTituloH5(field: HTMLTextAreaElement) {
-
     this.insertText(field.selectionStart, '<h5></h5>\n', field.selectionEnd);
   }
 
   crearParrafo(field: HTMLTextAreaElement) {
-
     this.insertText(field.selectionStart, '<p>\n\n</p>\n', field.selectionEnd);
   }
 
   crearTextoNegrita(field: HTMLTextAreaElement) {
-
     this.insertText(field.selectionStart, '<span class="negrita"></span>', field.selectionEnd);
   }
 
   crearTextoInclinado(field: HTMLTextAreaElement) {
-
     this.insertText(field.selectionStart, '<span class="inclinado"></span>', field.selectionEnd);
   }
 
   crearTextoSubrayado(field: HTMLTextAreaElement) {
-
     this.insertText(field.selectionStart, '<span class="subrayado"></span>', field.selectionEnd);
   }
 
   crearTextoTachado(field: HTMLTextAreaElement) {
-
     this.insertText(field.selectionStart, '<span class="tachado"></span>', field.selectionEnd);
   }
 

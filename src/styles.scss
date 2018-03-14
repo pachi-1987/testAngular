@@ -114,7 +114,7 @@ body {
 				header, article {
 					display: inline-block;
 					margin: 30px 30px;
-					width: calc(100% - 60px);
+					width: calc(100% - 60px);// Cogemos el 100% del ancho y le restamos los 60 pixeles de los margenes laterales
 				}
 				article {
 					margin-top: 0;
