@@ -1,0 +1,41 @@
+<section class="row">
+
+  <article class="col-12">
+    <label for="titulo">
+      Titulo
+      <input type="text" id="titulo" name="titulo" [(ngModel)]="titulo">
+    </label>
+    <label for="fechaPublicacion">
+      Fecha Publicación
+      <input type="date" id="fechaPublicacion" class="form-control" name="fechaPublicacion" [ngModel]="fechaPublicacion | date:'yyyy-MM-dd'"
+        (ngModelChange)="fechaPublicacion = $event">
+    </label>
+    <button class="btn btn-primary" (click)="grabarArticulo()">
+      <i class="far fa-save"></i>
+    </button>
+  </article>
+
+  <article class="col-12">
+    <aside class="btn-group">
+      <button class="btn btn-primary" (click)="crearTituloH3(articuloTextArea)">H3</button>
+      <button class="btn btn-primary" (click)="crearTituloH4(articuloTextArea)">H4</button>
+      <button class="btn btn-primary" (click)="crearTituloH5(articuloTextArea)">H5</button>
+      <button class="btn btn-primary" (click)="crearParrafo(articuloTextArea)">P</button>
+      <button class="btn btn-primary" (click)="crearTextoNegrita(articuloTextArea)">
+        <i class="fas fa-bold"></i>
+      </button>
+      <button class="btn btn-primary" (click)="crearTextoInclinado(articuloTextArea)">
+        <i class="fas fa-italic"></i>
+      </button>
+      <button class="btn btn-primary" (click)="crearTextoSubrayado(articuloTextArea)">
+        <i class="fas fa-underline"></i>
+      </button>
+      <button class="btn btn-primary" (click)="crearTextoTachado(articuloTextArea)">
+        <i class="fas fa-strikethrough"></i>
+      </button>
+    </aside>
+    <textarea #articuloTextArea class="form-control" name="articulo" [(ngModel)]="articulo"></textarea>
+  </article>
+
+  <article class="col-12" [innerHtml]="articulo"></article>
+</section>

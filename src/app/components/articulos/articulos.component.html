@@ -1,9 +1,23 @@
 <section class="row">
-  <div class="col-sm-12 col-md-6">
+
+  <div class="col-sm-12 col-md-6" *ngFor="let articulo of _as.articulos">
+    <article class="card" [routerLink]="['/detalle', articulo.key]">
+      <div class="card-body">
+        <h5 class="card-title">{{ articulo.titulo }}</h5>
+        <p class="card-text" [innerHTML]="articulo.articulo"></p>
+      </div>
+    </article>
+  </div>
+
+<!--   <div class="col-sm-12 col-md-6">
     <article class="card" [routerLink]="['/detalle', 1]">
       <div class="card-body">
         <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content. With supporting text below as a natural lead-in to additional content.With supporting text below as a natural lead-in to additional content.With supporting text below as a natural lead-in to additional content.With supporting text below as a natural lead-in to additional content.With supporting text below as a natural lead-in to additional content.With supporting text below as a natural lead-in to additional content.</p>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content. With supporting text below as a natural lead-in
+          to additional content.With supporting text below as a natural lead-in to additional content.With supporting text
+          below as a natural lead-in to additional content.With supporting text below as a natural lead-in to additional
+          content.With supporting text below as a natural lead-in to additional content.With supporting text below as a natural
+          lead-in to additional content.</p>
       </div>
     </article>
   </div>
@@ -11,7 +25,11 @@
     <article class="card" [routerLink]="['/detalle', 2]">
       <div class="card-body">
         <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content. With supporting text below as a natural lead-in to additional content.With supporting text below as a natural lead-in to additional content.With supporting text below as a natural lead-in to additional content.With supporting text below as a natural lead-in to additional content.With supporting text below as a natural lead-in to additional content.With supporting text below as a natural lead-in to additional content.</p>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content. With supporting text below as a natural lead-in
+          to additional content.With supporting text below as a natural lead-in to additional content.With supporting text
+          below as a natural lead-in to additional content.With supporting text below as a natural lead-in to additional
+          content.With supporting text below as a natural lead-in to additional content.With supporting text below as a natural
+          lead-in to additional content.</p>
       </div>
     </article>
   </div>
@@ -19,7 +37,11 @@
     <article class="card" [routerLink]="['/detalle', 3]">
       <div class="card-body">
         <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content. With supporting text below as a natural lead-in to additional content.With supporting text below as a natural lead-in to additional content.With supporting text below as a natural lead-in to additional content.With supporting text below as a natural lead-in to additional content.With supporting text below as a natural lead-in to additional content.With supporting text below as a natural lead-in to additional content.</p>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content. With supporting text below as a natural lead-in
+          to additional content.With supporting text below as a natural lead-in to additional content.With supporting text
+          below as a natural lead-in to additional content.With supporting text below as a natural lead-in to additional
+          content.With supporting text below as a natural lead-in to additional content.With supporting text below as a natural
+          lead-in to additional content.</p>
       </div>
     </article>
   </div>
@@ -27,8 +49,12 @@
     <article class="card" [routerLink]="['/detalle', 4]">
       <div class="card-body">
         <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content. With supporting text below as a natural lead-in to additional content.With supporting text below as a natural lead-in to additional content.With supporting text below as a natural lead-in to additional content.With supporting text below as a natural lead-in to additional content.With supporting text below as a natural lead-in to additional content.With supporting text below as a natural lead-in to additional content.</p>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content. With supporting text below as a natural lead-in
+          to additional content.With supporting text below as a natural lead-in to additional content.With supporting text
+          below as a natural lead-in to additional content.With supporting text below as a natural lead-in to additional
+          content.With supporting text below as a natural lead-in to additional content.With supporting text below as a natural
+          lead-in to additional content.</p>
       </div>
     </article>
-  </div>
+  </div> -->
 </section>

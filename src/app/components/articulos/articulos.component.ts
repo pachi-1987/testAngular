@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+
+import { Articulos } from '../../interfaces/articulos';
+import { ArticulosService } from '../../providers/articulos.service';
+
 @Component({
   selector: 'app-articulos',
   templateUrl: './articulos.component.html',
@@ -7,9 +11,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArticulosComponent implements OnInit {
 
-  constructor() { }
+  articulos: any;
 
-  ngOnInit() {
+  constructor(public _as: ArticulosService) {
+
+    this._as.getArticulos();
   }
+
+  ngOnInit() {}
 
 }
