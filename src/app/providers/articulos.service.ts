@@ -29,6 +29,10 @@ export class ArticulosService {
     });
   }
 
+  getArticulo(key: string) {
+    return this._afd.object(`articulos/${key}`).valueChanges();
+  }
+
   crearArticulo(key: string, data: any) {
 
     return this._afd.object(`articulos/${key}`).update(data);
