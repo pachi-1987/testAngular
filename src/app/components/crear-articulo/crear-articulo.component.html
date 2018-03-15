@@ -32,9 +32,16 @@
       <button class="btn btn-primary" (click)="crearTextoTachado(articuloTextArea)">
         <i class="fas fa-strikethrough"></i>
       </button>
+      <button class="btn btn-primary imageColector">
+        <label for="imageSelector">
+          <i class="far fa-images"></i>
+          <input type="file" name="imageSelector" id="imageSelector" (change)="cargarImagenes(articuloTextArea, $event)">
+        </label>
+      </button>
     </aside>
-    <textarea #articuloTextArea class="form-control" name="articulo" [(ngModel)]="articulo"></textarea>
+    <textarea #articuloTextArea="ngModel" class="form-control" name="articulo" [(ngModel)]="articulo"></textarea>
   </article>
 
   <article class="col-12" [innerHtml]="articulo"></article>
+  
 </section>

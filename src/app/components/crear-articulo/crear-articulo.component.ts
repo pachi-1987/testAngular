@@ -6,6 +6,7 @@ import { ArticulosService } from '../../providers/articulos.service';
 @Component({selector: 'app-crear-articulo', templateUrl: './crear-articulo.component.html', styleUrls: ['./crear-articulo.component.scss']})
 export class CrearArticuloComponent implements OnInit {
 
+  articuloTextArea;
   titulo = '';
   articulo = '';
   fechaPublicacion = new Date();
@@ -15,6 +16,7 @@ export class CrearArticuloComponent implements OnInit {
   ngOnInit() {}
 
   crearTituloH4(field: HTMLTextAreaElement) {
+    console.log(this.articuloTextArea);
     this.insertText(field.selectionStart, '<h4></h4>\n', field.selectionEnd);
   }
 
@@ -42,6 +44,49 @@ export class CrearArticuloComponent implements OnInit {
     this.insertText(field.selectionStart, '<span class="tachado"></span>', field.selectionEnd);
   }
 
+  cargarImagenes(field: HTMLTextAreaElement, event: any) {
+    const reader = new FileReader();
+
+    if (event.target.files && event.target.files.length > 0) {
+      const file = event.target.files[0];
+      reader.readAsDataURL(file);
+      reader.onload = (e) => {
+        const comp = this;
+        const image = new Image();
+        image.onload = function () {
+          const canvas = document.createElement('canvas');
+          let width = image.width;
+          let height = image.height;
+          const maxWidth = 300;
+          const maxHeight = 300;
+
+          if (width > height) {
+              if (width > maxWidth) {
+                  height *= maxWidth / width;
+                  width = maxWidth;
+              }
+          } else {
+              if (height > maxHeight) {
+                  width *= maxHeight / height;
+                  height = maxHeight;
+              }
+          }
+
+          const ctx = canvas.getContext('2d');
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          canvas.width = width;
+          canvas.height = height;
+          ctx.drawImage(image, 0, 0, width, height);
+
+          // callback(canvas.toDataURL('image/png'));
+          comp.insertText(field.selectionStart, `<img class="rounded" src="${canvas.toDataURL('image/png')}">`, field.selectionEnd);
+        };
+
+        image.src = reader.result;
+      };
+    }
+  }
+
   grabarArticulo() {
 
     const key: string = this.fechaPublicacion.getTime().toString();
@@ -57,7 +102,7 @@ export class CrearArticuloComponent implements OnInit {
     this._articulosServ.crearArticulo(key, data);
   }
 
-  private insertText(before: number, newText: string, after: number) {
+  private insertText(before: number, newText: string, after: number = this.articulo.length) {
     const beforeStr = this.articulo.substr(0, before);
     const afterStr = this.articulo.substr(after, this.articulo.length);
 

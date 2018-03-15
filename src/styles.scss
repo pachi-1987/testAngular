@@ -135,6 +135,20 @@ body {
 						textarea {
 							height: 80%;
 							resize: none;
+							overflow: auto;
+						}
+						button {
+							&.imageColector {
+								padding: 0px;
+								label {
+									cursor: pointer;
+									display: inline;
+									padding: 7px 13px;
+								}
+								input[type="file"] {
+									display: none;
+								}
+							}
 						}
 					}
 					&:nth-child(3) {
