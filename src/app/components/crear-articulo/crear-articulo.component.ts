@@ -6,7 +6,6 @@ import { ArticulosService } from '../../providers/articulos.service';
 @Component({selector: 'app-crear-articulo', templateUrl: './crear-articulo.component.html', styleUrls: ['./crear-articulo.component.scss']})
 export class CrearArticuloComponent implements OnInit {
 
-  articuloTextArea;
   titulo = '';
   articulo = '';
   fechaPublicacion = new Date();
@@ -16,7 +15,6 @@ export class CrearArticuloComponent implements OnInit {
   ngOnInit() {}
 
   crearTituloH4(field: HTMLTextAreaElement) {
-    console.log(this.articuloTextArea);
     this.insertText(field.selectionStart, '<h4></h4>\n', field.selectionEnd);
   }
 
@@ -78,7 +76,6 @@ export class CrearArticuloComponent implements OnInit {
           canvas.height = height;
           ctx.drawImage(image, 0, 0, width, height);
 
-          // callback(canvas.toDataURL('image/png'));
           comp.insertText(field.selectionStart, `<img class="rounded" src="${canvas.toDataURL('image/png')}">`, field.selectionEnd);
         };
 
@@ -102,9 +99,12 @@ export class CrearArticuloComponent implements OnInit {
     this._articulosServ.crearArticulo(key, data);
   }
 
-  private insertText(before: number, newText: string, after: number = this.articulo.length) {
+  private insertText(before: number, newText: string, after: number) {
+    console.log(before, after);
     const beforeStr = this.articulo.substr(0, before);
     const afterStr = this.articulo.substr(after, this.articulo.length);
+
+
 
     this.articulo = `${beforeStr}${newText}${afterStr}`;
   }
